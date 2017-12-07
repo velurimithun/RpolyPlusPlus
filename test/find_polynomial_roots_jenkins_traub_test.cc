@@ -33,11 +33,14 @@
 
 #include <algorithm>
 #include <vector>
+#include <math.h> 
 #include "gtest/gtest.h"
 
 #include "src/find_polynomial_roots_jenkins_traub.h"
 #include "src/polynomial.h"
 #include "test/test_utils.h"
+
+#define _USE_MATH_DEFINES //For PI
 
 namespace rpoly_plus_plus {
 
@@ -301,6 +304,13 @@ TEST(Polynomial, JenkinsTraub4Roots1) {
                            1.3072756126590779, 1.4643848994415114};
   RunPolynomialTestRealRoots(roots, true, false, kEpsilonLoose);
 }
+
+//Test for 4 rooots(PI)
+TEST(Polynomial, JenkinsTraub4RootsPI) {
+  const double roots[4] = {M_PI, M_PI, M_PI, M_PI};
+  RunPolynomialTestRealRoots(roots, true, false, kEpsilonLoose);
+}
+
 
 // This test polynomial was provided by a user.
 TEST(Polynomial, JenkinsTraub4Roots2) {
